@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animation 1</title>
+    <style>
+        @keyframes sample-ani {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(300px, 0);
+                background: aquamarine;
+            }
+            100% {
+                transform: translate(300px, 100px);
+            }
+        }
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            background: #fff000;
+            animation: sample-ani 3s linear forwards;
+        }
+
+        .box:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <h1>Animation</h1>
+    <div class="box">Box</div>
+</body>
+</html>
