@@ -7,6 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Transition Event</title>
     <style>
+        @keyframes ball-ani {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(200px, 200px);
+            }
+        }
         .ball {
             position: absolute;
             left: 0;
@@ -15,7 +24,7 @@
             height: 30px;
             border-radius: 50%;
             background: red;
-            transition: 2s;
+            animation: ball-ani 1s 3 alternate forwards;
         }
 
         .ball.end {
