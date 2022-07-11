@@ -4,7 +4,8 @@
     const stageElem = document.querySelector('.stage');
     const houseElem = document.querySelector('.house');
     const progressbar = document.querySelector('.progress-bar');
-    const mousePos = { x: 0, y: 0 };
+    const selectCharacterElem = document.querySelector('.select-character');
+    const mousePos = {x: 0, y: 0};
 
     // 전체 높이 - 현재 페이지 높이
     let maxScrollValue;
@@ -15,7 +16,7 @@
 
     window.addEventListener('scroll', function () {
         // 비율 계산
-        const scrollPer =  pageYOffset / maxScrollValue;
+        const scrollPer = pageYOffset / maxScrollValue;
         const zMove = scrollPer * 980 - 490;
         houseElem.style.transform = `translateZ(${zMove}vw)`;
 
@@ -37,5 +38,18 @@
 
     window.addEventListener('resize', resizeHandler);
 
+    stageElem.addEventListener('click', function (e) {
+        new Character({
+            xPos: e.clientX / window.innerWidth * 100,
+            speed: Math.random() * 0.7 + 0.2
+        });
+    });
+
+    selectCharacterElem.addEventListener('click', function (e) {
+        const value = e.target.getAttribute('data-char');
+        document.body.setAttribute('data-char', value);
+    });
+
     resizeHandler();
+
 })();
